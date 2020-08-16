@@ -1,0 +1,35 @@
+{% extends 'accounts/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block body_block %}
+<br>
+<br>
+<br>
+
+<div class="jumbotron text-center">
+        
+    <div class="container">
+
+        <h1 class="display-4 p-5">{{ video.name }}</h1>
+        <hr>
+        <video width='800' controls>
+            <source src='{{ MEDIA_URL }}{{ video.videofile }}' type='video/mp4'>
+            Your browser does not support the video tag.
+        </video>
+        {% if user == video.user%}
+        
+        <p class="text-right"> <a href="{% url 'home:deletevideo' pk=video.pk %}"><button 
+            class="btn btn-danger">REMOVE <i class="fa fa-trash" aria-hidden="true"></i></button></a></p>
+        
+        {% endif %}
+        <br><br>
+        </p>
+    </div>
+
+</div>
+
+
+{% load static %}
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'p3plcpnl0769' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+
+{% endblock %}
